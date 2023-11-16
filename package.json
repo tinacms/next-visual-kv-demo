@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
+    "dev": "TINA_PUBLIC_IS_LOCAL=false tinacms dev -c \"next dev\"",
     "build": "tinacms build --partial-reindex && next build",
-    "start": "tinacms build && next start",
+    "start": "next start",
     "lint": "next lint",
     "setup:users": "tsx tina/kv_user_manager.ts"
   },
@@ -15,10 +15,12 @@
   },
   "dependencies": {
     "@octokit/rest": "^19.0.7",
-    "@tinacms/cli": "1.5.24",
-    "@types/node": "20.2.5",
+    "@tinacms/cli": "0.0.0-20231116133956",
+    "@tinacms/datalayer": "0.0.0-20231116133956",
+    "@types/node": "^20.9.0",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
+    "@upstash/redis": "^1.25.1",
     "autoprefixer": "10.4.14",
     "bcryptjs": "^2.4.3",
     "chalk": "^5.2.0",
@@ -31,7 +33,7 @@
     "js-base64": "^3.7.4",
     "mongodb-level": "^0.0.2",
     "next": "13.4.9",
-    "next-auth": "^4.22.1",
+    "next-auth": "^4.24.5",
     "next-tinacms-cloudinary": "^4.3.1",
     "postcss": "8.4.24",
     "postcss-nesting": "^10.1.0",
@@ -39,9 +41,11 @@
     "react-dom": "18.2.0",
     "react-textarea-autosize": "^8.5.2",
     "tailwindcss": "3.3.2",
-    "tinacms": "1.5.15",
+    "tinacms": "0.0.0-20231116133956",
+    "tinacms-authjs": "0.0.0-20231116133956",
+    "tinacms-gitprovider-github": "0.0.0-20231116133956",
     "tsx": "^3.12.7",
     "typescript": "5.0.4",
-    "upstash-redis-level": "1.0.0"
+    "upstash-redis-level": "^1.0.0"
   }
 }
