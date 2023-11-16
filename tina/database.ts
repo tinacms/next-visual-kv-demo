@@ -2,7 +2,6 @@
 import { createDatabase, createLocalDatabase } from '@tinacms/datalayer'
 import { GitHubProvider } from 'tinacms-gitprovider-github'
 import { RedisLevel } from 'upstash-redis-level'
-import { Redis } from '@upstash/redis'
 
 const branch = (process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
@@ -30,10 +29,10 @@ export default isLocal
         }),
       databaseAdapter: new RedisLevel({
         namespace: branch,
-        redis: new Redis({
+        redis:  {
           url: process.env.KV_REST_API_URL!,
           token: process.env.KV_REST_API_TOKEN!,
-        }),
+        },
         debug: process.env.DEBUG === 'true' || false,
       }),
       namespace: branch,
